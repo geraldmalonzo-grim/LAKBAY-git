@@ -428,6 +428,24 @@
         padding: 13px max(5vw, 22px);
         background: color-mix(in srgb, var(--bg) 94%, transparent);
         backdrop-filter: blur(14px);
+        .mark {
+          font-size: 36px;
+          font-weight: 600;
+          letter-spacing: 0.17em;
+          line-height: 1.1;
+          color: var(--coffee);
+        }
+
+        .mark small {
+          display: block;
+          font-size: 11px;
+          font-weight: 400;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          margin-top: 5px;
+          color: var(--gray);
+        }
+
         border-bottom: 1px solid var(--line);
         box-shadow: 0 3px 18px #2b211b08;
       }
@@ -524,7 +542,7 @@
       .sub {
         font-size: clamp(25px, 3vw, 38px);
         line-height: 1.12;
-        max-width: 15ch;
+        max-width: 30ch;
         color: var(--espresso);
       }
       .hero > div > p:not(.small):not(.sub) {
@@ -812,6 +830,75 @@
             color 0.18s ease;
         }
       }
+      /* Chapters button */
+      #mb {
+        background: #4b3024;
+        color: #f4ebdd;
+        border-color: #4b3024;
+      }
+
+      #mb:hover {
+        background: #a65d3b;
+        color: #ffffff;
+        border-color: #a65d3b;
+      }
+
+      /* Field Note (replaces the old Reflect panel) */
+      .archive-note {
+        position: relative;
+        margin: 34px 0;
+        padding: 22px 22px 22px 27px;
+        background: linear-gradient(120deg, #e8d4bc, #f0e4d3 72%, #e5ceb3);
+        border: 1px solid #d0b496;
+        box-shadow: 5px 6px 0 #5a3a2310;
+      }
+      .archive-note:before {
+        content: "";
+        position: absolute;
+        left: 12px;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: #b98764;
+      }
+      .archive-note-label {
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #9b5d3d;
+      }
+      .archive-note p {
+        font: italic 19px/1.5 "Cormorant Garamond", Georgia, serif;
+        color: #5b3d2b;
+        margin: 9px 0 0;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) .archive-note {
+          background: linear-gradient(120deg, #39281e, #46332a);
+          border-color: #5a4334;
+          box-shadow: 5px 6px 0 #0000001a;
+        }
+        :root:not([data-theme="light"]) .archive-note:before {
+          background: #8a6249;
+        }
+        :root:not([data-theme="light"]) .archive-note-label {
+          color: #d5a57f;
+        }
+        :root:not([data-theme="light"]) .archive-note p {
+          color: #f4ebdd;
+        }
+      }
+      :root[data-theme="dark"] .archive-note {
+        background: linear-gradient(120deg, #39281e, #46332a);
+        border-color: #5a4334;
+      }
+      :root[data-theme="dark"] .archive-note-label {
+        color: #d5a57f;
+      }
+      :root[data-theme="dark"] .archive-note p {
+        color: #f4ebdd;
+      }
     </style>
   </head>
   <body>
@@ -870,7 +957,7 @@
             ],
           ],
           w: "Rizal did not start as a revolutionary. He started as a child who was taught to be curious, then watched curiosity and fairness collide with power. That tension drives everything that follows.",
-          r: "Which early experience in your own life first made you question what is fair?",
+          n: "His full name was José Protasio Rizal Mercado y Alonso Realonda.",
         },
         {
           id: "learner",
@@ -911,7 +998,7 @@
             ],
           ],
           w: "Education gave Rizal tools: languages, science, craft. It also showed him that tools were rationed by race. The classroom taught him what Filipinos could become, and what the colony would not allow.",
-          r: "What do you want your education to be used for, beyond a job?",
+          n: "He wrote A la Juventud Filipina in 1879, at age 18.",
         },
         {
           id: "traveler",
@@ -957,7 +1044,7 @@
             ],
           ],
           w: "Travel did not change Rizal's love for the Philippines; it gave it vocabulary and comparison. He began to argue as a Filipino rather than only feel as one.",
-          r: "What place or person has changed how you see your own community?",
+          n: "He is often said to have known 22 languages. Treat this as a traditional figure; counts vary.",
         },
         {
           id: "writer",
@@ -1003,7 +1090,7 @@
             ],
           ],
           w: "Rizal turned experiences into evidence. Where he could not speak openly in the colony, a novel could speak for him from across the sea.",
-          r: "Which problem in your community needs a story to be understood?",
+          n: "Noli me tangere is Latin for 'touch me not', a phrase from the Gospel of John.",
         },
         {
           id: "reformer",
@@ -1044,7 +1131,7 @@
             ],
           ],
           w: "Rizal tested whether peaceful means could work. When La Liga was crushed and Spain refused change, the limits of reform became part of the story, and part of his legacy.",
-          r: "When does patient reform stop being enough, and who decides?",
+          n: "His pen names had meanings: Laong Laan is commonly translated 'ever ready' and Dimasalang 'untouchable'.",
         },
         {
           id: "exile",
@@ -1090,7 +1177,7 @@
             ],
           ],
           w: "In exile he stopped asking only what the colony should change and started showing what a Filipino community could do for itself.",
-          r: "What can you do with the skills you have right now for people around you?",
+          n: "Rizal spent about four years in Dapitan, from 1892 to 1896.",
         },
         {
           id: "final",
@@ -1136,7 +1223,7 @@
             ],
           ],
           w: "His execution made the colony's injustice impossible to dismiss. Rizal had to choose between safety and principle more than once, and he did not flee.",
-          r: "Would you stand by a principle if it cost you comfort or safety?",
+          n: "Mi Último Adiós had no title from Rizal; the title was added later.",
         },
         {
           id: "hero",
@@ -1181,7 +1268,7 @@
             ],
           ],
           w: "Rizal was not a hero because he was destined to be. He became one through repeated choices to use what he learned for others.",
-          r: "Which of Rizal's choices could you make this month, at your scale?",
+          n: "Rizal Day is observed every December 30, the anniversary of his execution.",
         },
       ];
       const S = [
@@ -1283,7 +1370,7 @@
       function home() {
         const tl = C.slice(0, 7).map((c) => [c.d, c.t, c.q]);
         A.innerHTML =
-          '<section class="hero"><div><p class="small">1861–1896 · Calamba to Bagumbayan</p><h1>LAKBAY<span class="hero-period">.</span></h1><p class="sub">Before the hero, there was a boy who kept asking why.</p><p style="max-width:44ch">Walk through nine chapters of José Rizal\'s life and see how what he lived, learned, wrote and chose became a path to heroism.</p><a class="btn pri" href="#/young">Begin the journey</a></div><figure class="hero-art"><div class="portrait-frame"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Jose_Rizal_full.jpg/800px-Jose_Rizal_full.jpg" alt="Archival portrait of José Rizal" loading="eager" onerror="this.style.display=&quot;none&quot;;this.nextElementSibling.style.display=&quot;grid&quot;"><div class="portrait-fallback" style="display:none">JOSÉ RIZAL<br><small>1861 — 1896</small></div><span class="image-stamp">THE PHILIPPINES · 19TH CENTURY</span></div><figcaption><span>José Rizal</span><span>1861 — 1896</span></figcaption></figure></section>' +
+          '<section class="hero"><div><p class="small">1861–1896 · Calamba to Bagumbayan</p><h1>JOSE RIZAL<span class="hero-period">.</span></h1><p class="sub">Before the hero, there was a boy who kept asking why.</p><p style="max-width:44ch">Writer, physician, and reformer whose ideas helped awaken Filipino national consciousness. Follow the experiences, works, and choices that shaped his journey to heroism.</p><a class="btn pri" href="#/young">Begin the journey</a></div><figure class="hero-art"><div class="portrait-frame"><img src="RizalPicHehehehehe.png" alt="Archival portrait of José Rizal" loading="eager" onerror="this.style.display=&quot;none&quot;;this.nextElementSibling.style.display=&quot;grid&quot;"><div class="portrait-fallback" style="display:none">JOSÉ RIZAL<br><small>1861 — 1896</small></div><span class="image-stamp">THE PHILIPPINES · 19TH CENTURY</span></div><figcaption><span>José Rizal</span><span>1861 — 1896</span></figcaption></figure></section>' +
           '<h2>The path at a glance</h2><div class="path"><div class="tl" id="tl">' +
           tl
             .map(
@@ -1303,7 +1390,7 @@
           "</p><p>" +
           C[0].p +
           '</p><a class="btn pri" href="#/young">Read The Young Rizal</a></div>' +
-          '<h2>Nine chapters</h2><div class="grid">' +
+          '<h2>Eight chapters</h2><div class="grid">' +
           C.map(
             (c, i) =>
               '<a href="#/' +
@@ -1368,9 +1455,9 @@
           "</div><details><summary>Why it matters for his journey</summary><p>" +
           c.w +
           "</p></details>" +
-          '<div class="panel"><h3>Reflect</h3><p>' +
-          c.r +
-          '</p><textarea id="ta" aria-label="Your reflection" placeholder="Write here. This stays in your browser only and is not sent anywhere."></textarea><p class="small">Saved locally in your browser (localStorage). Clearing site data removes it.</p></div>' +
+          '<div class="archive-note"><span class="archive-note-label">FIELD NOTE</span><p>' +
+          c.n +
+          "</p></div>" +
           '<p class="small">Sources: see <a href="#/sources">References</a> (1–4).</p><div class="nav2">' +
           (i > 0
             ? '<a class="btn" href="#/' +
@@ -1379,7 +1466,7 @@
               C[i - 1].t +
               "</a>"
             : '<a class="btn" href="#/">Home</a>') +
-          (i < 8
+          (i < C.length - 1
             ? '<a class="btn pri" href="#/' +
               C[i + 1].id +
               '">Next: ' +
@@ -1420,16 +1507,6 @@
           sh(0);
           it.appendChild(ch);
         } else it.appendChild(tabs(c.items));
-        const ta = document.getElementById("ta"),
-          k = "lakbay-r-" + c.id;
-        try {
-          ta.value = localStorage.getItem(k) || "";
-        } catch (e) {}
-        ta.oninput = () => {
-          try {
-            localStorage.setItem(k, ta.value);
-          } catch (e) {}
-        };
       }
       function sources() {
         A.innerHTML =
@@ -1447,7 +1524,7 @@
                 : "") +
               "</li>",
           ).join("") +
-          "</ol><h3>Image credits</h3><p>No external images are used. Portrait slots are labeled placeholders; add public-domain images with source and license.</p><h3>Still to verify</h3><p>Check exact dates and arrest details against the cited biographies before submitting this work, and replace or confirm every source entry above.</p>";
+          "</ol><h3>Image credits</h3><p>No external images are used. Portrait slots are labeled placeholders; add public-domain images with source and license.</p><h3>Still to verify</h3><p>Check exact dates and arrest details against the cited biographies before submitting this work, and replace or confirm every source entry above.</p><p><a class='btn pri' href='#/'>Back to Home</a></p>";
       }
       function route() {
         const r = location.hash.replace("#/", "") || "/";
